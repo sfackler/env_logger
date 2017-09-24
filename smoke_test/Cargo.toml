@@ -1,0 +1,8 @@
+[package]
+name = "env_logger_test"
+version = "0.1.0"
+authors = ["Ashley Mannix <ashleymannix@live.com.au>"]
+
+[dependencies]
+log = { git = "https://github.com/rust-lang-nursery/log.git" }
+env_logger = { version = "*", path = "../env_logger" }

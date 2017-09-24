@@ -518,6 +518,11 @@ impl Log for Logger {
         let _ = match self.target {
             Target::Stdout if self.matches(record) => (self.format)(&mut io::stdout(), record),
             Target::Stderr if self.matches(record) => (self.format)(&mut io::stderr(), record),
+            /*Target::Stderr if self.matches(record) => {
+                let mut value = Vec::new();
+                (self.format)(&mut value, record)
+                    .and_then(|_| io::stderr().write_all(&value))
+            },*/
             _ => Ok(()),
         };
     }
